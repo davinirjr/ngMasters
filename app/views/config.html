@@ -1,0 +1,49 @@
+<div class="row-fluid">
+
+	<h5>Admin de layout</h5>
+	<hr>
+	<div class="col-md-5" ng-if="showListMenu">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-list-alt"></i>
+				Lista de Menus
+			</div>
+			<div class="panel_body">
+				<table class="table table-hover table-striped table-bordered table-condensed">
+					<thead>
+						<tr>
+							<th>Titulo</th>
+							<th>Icone</th>
+							<th>State</th>
+							<th>Opções</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="value in d.listMenu">
+							<td>{{value.title}}</td>
+							<td><i class="{{value.icon}}"></i> - {{value.icon}}</td>
+							<td>{{value.state}}</td>
+							<td  class="text-center">
+								<div class="btn-group">
+									<button class="btn btn-success btn-xs" ng-click="f.newMenu()" title="Adicionar">
+										<i class="fa fa-plus"></i>
+									</button>
+									<button class="btn btn-default btn-xs" ng-click="f.editMenu(value)" title="Editar">
+										<i class="fa fa-edit"></i>
+									</button>
+									<button class="btn btn-danger btn-xs" ng-click="f.removeMenu(value)" title="Remover">
+										<i class="fa fa-remove"></i>
+									</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<div ng-include="'views/config.menu.html'" scope="this" ng-show="!showListMenu"></div>
+	</div>
+</div>
